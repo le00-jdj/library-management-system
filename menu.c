@@ -179,7 +179,7 @@ void menu_main(ulinklist users)
             register_menu(users);
         else if (choice == 3)
             book_menu(0, &head, NULL);            /* ★ 游客:NULL=没名字 */
-        else if (choice == 0) return;
+        else if (choice == 4) return;
         else printf("无效选项\n");
     }
 }
