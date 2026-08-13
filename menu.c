@@ -166,7 +166,7 @@ void menu_main(ulinklist users)
     while (1)
     {
         printf("\n======== 图书管理系统 ========\n");
-        printf("1. 登录\n2. 注册\n3. 游客访问\n4. 退出\n=========================\n");
+        printf("1. 登录\n2. 注册\n3. 游客访问\n0. 退出\n=========================\n");
         printf("请选择: ");
         scanf("%d", &choice);
 
@@ -179,7 +179,7 @@ void menu_main(ulinklist users)
             register_menu(users);
         else if (choice == 3)
             book_menu(0, &head, NULL);            /* ★ 游客:NULL=没名字 */
-        else if (choice == 4) return;
+        else if (choice == 0) return;
         else printf("无效选项\n");
     }
 }
