@@ -52,5 +52,5 @@ gcc -o 程序.exe main.c menu.c linklist.c logIn.c borrow.c -static
 
 ---
 
-作者:______  
+作者:一只丑陋的橘子 
 日期:2026-08
