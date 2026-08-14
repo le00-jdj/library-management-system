@@ -35,3 +35,20 @@ void do_return(linklist head, const char *username)
     p->borrower[0] = '\0';
     printf("还书成功\n");
 }
+
+void do_show_borrowers(linklist head)
+{
+    int count = 0;
+    printf("======== 借阅情况(仅管理员) ========\n");
+    for (linklist p = head->next; p != NULL; p = p->next)
+    {
+        if (p->status == 1)   /* 只打印借出的 */
+        {
+            printf("《%s》 ISBN:%s  -> 借阅者: %s\n",
+                   p->book_name, p->ISBN, p->borrower);
+            count++;
+        }
+    }
+    if (count == 0)
+        printf("当前没有借出的图书\n");
+}

@@ -4,5 +4,6 @@
 
 void do_borrow(linklist head, const char *username);
 void do_return(linklist head, const char *username);
+void do_show_borrowers(linklist head);
 
 #endif

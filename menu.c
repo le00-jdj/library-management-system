@@ -9,6 +9,10 @@ book input_book(void)
     printf("书名: ");  scanf("%s", b.book_name);
     printf("作者: ");  scanf("%s", b.author);
     printf("ISBN: ");  scanf("%s", b.ISBN);
+    b.status = 0;              /* ★ 新书默认在馆 */
+    b.borrower[0] = '\0';      /* ★ 没有借阅人,置空字符串 */
+
+
     return b;
 }
 
@@ -60,7 +64,7 @@ void book_menu(int role, linklist *phead, const char *username)
     while (1)
     {
         printf("\n===== 图书管理 =====\n");
-         printf("1. 录入图书 \n2. 显示图书 \n3. 查找图书 \n4. 删除图书 \n5. 借书 \n6. 还书 \n7. 返回上一菜单\n8. 退出系统\n");
+        printf("1. 录入图书 \n2. 显示图书 \n3. 查找图书 \n4. 删除图书 \n5. 借书 \n6. 还书 \n7. 借阅情况(管理员) \n8. 返回上一菜单\n0. 退出系统\n");
         printf("请选择: ");
         scanf("%d", &choice);
 
@@ -72,7 +76,9 @@ void book_menu(int role, linklist *phead, const char *username)
         case 4: do_del(phead, role);   break;
         case 5: do_borrow(*phead, username); break;
         case 6: do_return(*phead, username); break;
-        case 7: return;
+        case 7: if (role < 2) { printf("只有管理员才能查看借阅者信息！\n"); }
+        else  { do_show_borrowers(*phead); }break;
+        case 8: return;
         case 0: exit(0);
         default: printf("无效选项\n");
         }

@@ -125,6 +125,7 @@ void print(linklist head)
         return;
     }
     for (linklist p = head->next; p != NULL; p = p->next)
-        printf("%s  %s  %s\n", p->book_name, p->author, p->ISBN);
+        printf("%s  %s  %s  [%s]\n", p->book_name, p->author, p->ISBN, p->status ? "已借出" : "在馆");
+        
     printf("\n");
 }
